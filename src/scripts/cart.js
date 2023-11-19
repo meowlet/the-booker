@@ -22,9 +22,7 @@ const { data, error } = await supabase
 if (error) {
   console.error("Error: ", error);
 } else {
-  console.log("Data: ", data);
-
-  // Tạo một chuỗi HTML để hiển thị sản phẩm
+  // Tạo HTML hiển thị sản phẩm
   let productHTML = "";
   data.forEach((item) => {
     productHTML += `
@@ -79,7 +77,7 @@ if (error) {
     }
   }
 
-  // Tạo một hàm để lưu thông tin đơn hàng vào cơ sở dữ liệu sau khi checkout
+  // Hàm lưu thông tin đơn hàng vào database sau khi checkout
   async function saveOrder(order) {
     // Lưu thông tin về sản phẩm bán được và số lượng tương ứng
     for (const product of order.products) {
@@ -107,13 +105,13 @@ if (error) {
       const productId = row.getAttribute("data-product-id");
       removeFromCart(productId);
 
-      // Xóa dòng sản phẩm khỏi bảng
+      // Xóa sản phẩm khỏi table
       row.remove();
       updateTotalPrice();
     });
   });
 
-  // Tạo hàm để cập nhật tổng giá tiền
+  // Hàm cập nhật tổng giá tiền
   function updateTotalPrice() {
     let total = 0;
     const rows = document.querySelectorAll("tbody tr");
@@ -131,7 +129,7 @@ if (error) {
       }
     });
     const taxes = (total * 8) / 100;
-    const totalElement = document.querySelector("#total-price"); // Sửa id ở đây
+    const totalElement = document.querySelector("#total-price");
     if (totalElement) {
       document.querySelector("#taxes").innerText = `${taxes}₫`;
       totalElement.innerText = `${total}₫`;
@@ -147,7 +145,7 @@ if (error) {
   // Gọi hàm updateTotalPrice lần đầu tiên để cập nhật tổng giá tiền
   updateTotalPrice();
 
-  // Tạo một hàm để xóa tất cả sản phẩm khỏi giỏ hàng
+  // Hàm xóa tất cả sản phẩm khỏi giỏ hàng
   async function clearCart() {
     const { error } = await supabase
       .from("cart")
@@ -180,7 +178,6 @@ if (error) {
             quantity: row.querySelector(".quantity").value,
           }),
         ),
-        // Thêm các thông tin khác nếu cần
       };
 
       // Lưu thông tin đơn hàng

@@ -13,7 +13,7 @@ function checkPasswordLength(password) {
 
 //hàm để đăng ký người dùng mới``
 export async function registerUser() {
-  // Lấy giá trị từ các trường input
+  // Lấy giá trị từ các input
   let username = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
   let confirmPassword = document.querySelector("#confirm-password").value;

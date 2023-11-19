@@ -5,7 +5,7 @@ import { supabase } from "../lib/supabase";
 let { data: product } = await supabase.from("product").select("*");
 renderTable(product);
 
-// Khởi tạo các biến cần thiết
+// Khởi tạo bieens
 let product_name = "";
 let product_category = "";
 let product_desc = "";
@@ -15,11 +15,11 @@ let in_stock = 0;
 
 const button = document.querySelector(".btn-primary");
 
-// Hàm tải hình ảnh lên Imgur
+// Hàm up ảnh lên Imgur
 async function imageUpload() {
   const file = document.getElementById("image_upload");
   const formdata = new FormData();
-  formdata.append("image", file.files[0]); // Lấy file đầu tiên trong danh sách file
+  formdata.append("image", file.files[0]); // Lấy file đầu
   try {
     const response = await fetch("https://api.imgur.com/3/image/", {
       method: "post",
@@ -29,7 +29,7 @@ async function imageUpload() {
       body: formdata,
     });
     const data = await response.json();
-    // Gọi hàm addProduct với tham số là giá trị product_img_src
+    // addProduct, tham số là giá trị product_img_src
     addProduct(data.data.link);
   } catch (error) {
     console.error(error);
@@ -239,7 +239,7 @@ export function checkToken() {
 
   // Kiểm tra giá trị token
   if (token !== adminToken) {
-    // Nếu giá trị token không khớp, chuyển hướng người dùng sang trang chủ
+    // Nếu giá trị token không khớp, chuyển hướng người dùng sang trang chủ ngay
     window.location.href = "/";
   }
 }

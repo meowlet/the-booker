@@ -1,5 +1,4 @@
 ---
-// Nhận các tham số từ props
 const {
   productID,
   productName,
@@ -29,11 +28,11 @@ const {
           {productName}
         </h5>
       </a>
-      <a class="" href=`/shop/category/${productCategory}/`
-        ><span class="text-orange-600 hover:underline font-be-vn text-sm"
-          >#{productCategory}</span
-        ></a
-      >
+      <a class="" href=`/shop/category/${productCategory}/`>
+        <span class="text-orange-600 hover:underline font-be-vn text-sm">
+          #{productCategory}
+        </span>
+      </a>
     </div>
 
     <p
@@ -74,7 +73,9 @@ const {
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+            d="M1 5h12m0 0L9 1m4 4L9 9"
+          >
+          </path>
         </svg>
       </a>
     </div>

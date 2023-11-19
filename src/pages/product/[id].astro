@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { supabase } from "../../lib/supabase";
-// Lấy dữ liệu sản phẩm từ Supabase
+// Lấy dữ liệu sản phẩm từ supabase
 
 export async function getStaticPaths() {
   const { data: products, error } = await supabase.from("product").select("*");

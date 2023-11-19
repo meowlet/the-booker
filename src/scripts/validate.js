@@ -1,6 +1,6 @@
 import { supabase } from "../lib/supabase";
 
-// Hàm này sẽ lấy thông tin người dùng từ token
+// Hàm lấy thông tin người dùng từ token
 export async function getUserFromToken(token) {
   let { data, error } = await supabase
     .from("user")
@@ -12,13 +12,13 @@ export async function getUserFromToken(token) {
     return null;
   }
 
-  // Giả sử rằng mỗi token chỉ tương ứng với một username
+  // Mỗi token chỉ tương ứng với một username (chắc thế)
   return data.length > 0 ? data[0].username : null;
 }
 
-// Hàm này sẽ kiểm tra người dùng và chuyển hướng nếu cần
+// Hàm kiểm tra người dùng và redirect nếu cần
 export async function checkUserAndRedirect() {
-  // Lấy token từ localStorage
+  // Bốc token từ localStorage
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -26,7 +26,7 @@ export async function checkUserAndRedirect() {
     return;
   }
 
-  // Gọi hàm getUserFromToken để lấy thông tin người dùng từ token
+  // Gọi hàm getUserFromToken để bốc ra username từ token
   const username = await getUserFromToken(token);
 
   if (username) {
@@ -40,17 +40,17 @@ export async function checkUserAndRedirect() {
     if (username === "admin") {
       toggleVisibility(["dashboard"], []);
     } else if (window.location.pathname === "/dashboard") {
-      // Nếu người dùng không phải là "admin" và đang cố gắng truy cập vào trang "dashboard", chuyển hướng họ về trang chủ
+      // Nếu người dùng không phải là "admin" mà đòi vô trang "dashboard", redirect về trang chủ (phương án tạm thời, không hiệu quả nếu có người thực sự muốn cheat)
       window.location.href = "/";
     }
   } else {
-    // Nếu token không hợp lệ, thông báo cho người dùng
+    // Token không hợp lệ thì thông báo
     console.log("Token không hợp lệ");
     toggleVisibility(["login", "signup"], ["profile", "logout"]);
   }
 }
 
-// Hàm này sẽ thay đổi hiển thị của các phần tử
+// Hàm sửa phần hiển thị của các elements
 function toggleVisibility(showIds, hideIds) {
   showIds.forEach((id) => {
     const showElement = document.getElementById(id);

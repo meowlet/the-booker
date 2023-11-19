@@ -16,7 +16,7 @@ async function fetchProducts() {
 // Gọi hàm lấy dữ liệu sản phẩm
 fetchProducts();
 
-// Lắng nghe sự kiện nhập vào ô tìm kiếm
+// Listener ô tìm kiếm
 document.getElementById("search-input").addEventListener("input", function (e) {
   let input = e.target.value;
   let resultsContainer = document.getElementById("search-results");
@@ -25,7 +25,7 @@ document.getElementById("search-input").addEventListener("input", function (e) {
   resultsContainer.innerHTML = "";
   resultsContainer.className = "hidden";
 
-  // Nếu người dùng nhập vào ô tìm kiếm
+  // Khi người dùng nhập vào ô tìm kiếm
   if (input.trim() !== "") {
     // Hiển thị kết quả tìm kiếm
     resultsContainer.className =
@@ -68,7 +68,7 @@ document.getElementById("search-input").addEventListener("blur", function () {
   }, 200);
 });
 
-// Khi trang web tải xong, xóa giá trị trong ô tìm kiếm
+// Nếu reload thì xóa ô tìm
 window.onload = function () {
   document.getElementById("search-input").value = "";
 };

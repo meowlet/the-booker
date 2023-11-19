@@ -33,17 +33,17 @@ export function viewOrder() {
     return acc;
   }, {});
 
-  // For each user, create a table and insert it into the page
+  // Gộp theo user (copy lại từ bên order.js nhưng lười sửa bới ko cần thiết)
   for (const [username, orders] of Object.entries(ordersByUser)) {
     // Create a div for the user's orders
     const userDiv = document.getElementById("orderTable");
 
-    // Create a table for the user's orders
+    // Tạo bảng
     const table = document.createElement("table");
     table.className = "w-full text-sm text-center text-gray-500";
     userDiv.appendChild(table);
 
-    // Create the table head
+    // Tạo head cho bảng
     const thead = document.createElement("thead");
     thead.className = "text-xs text-gray-700 uppercase bg-gray-50 ";
     table.appendChild(thead);
@@ -60,11 +60,11 @@ export function viewOrder() {
       tr.appendChild(th);
     });
 
-    // Create the table body
+    // Thân bảng
     const tbody = document.createElement("tbody");
     table.appendChild(tbody);
 
-    // Add each order to the table body
+    // Thêm item vô thân
     let total = 0;
     orders.forEach((order) => {
       const tr = document.createElement("tr");
@@ -107,7 +107,7 @@ export function viewOrder() {
       total += order.product.product_price * order.quantity;
     });
 
-    // Create a div for the total
+    // Div tổng giá trị đơn
     const totalDiv = document.createElement("div");
     totalDiv.className =
       "bottom-info text-lg font-semibold p-4 text-center items-center md:bg-white underline";
@@ -125,7 +125,7 @@ if (error) {
   console.log("Data: ", data);
   viewOrder();
 }
-// Add event listeners for the remove buttons
+// Listener của nút xóa
 const removeButtons = document.querySelectorAll(".remove");
 removeButtons.forEach((button) => {
   button.addEventListener("click", async function (event) {
@@ -150,7 +150,7 @@ removeButtons.forEach((button) => {
   });
 });
 
-// Add event listeners for the confirm buttons
+// Listener của nuts confirm
 const confirmButtons = document.querySelectorAll(".btn");
 confirmButtons.forEach((button) => {
   button.addEventListener("click", async function () {
@@ -166,7 +166,7 @@ confirmButtons.forEach((button) => {
       console.error("Error: ", updateError);
     } else {
       console.log(`Orders for ${username} confirmed`);
-      // Move the user's div to the processed orders div
+      // Cái được process rồi thì ném sang processed-ỏderrs
       document
         .querySelector("#processed-orders")
         .appendChild(this.parentElement.parentElement);
