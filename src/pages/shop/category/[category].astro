@@ -1,0 +1,78 @@
+---
+// component imports
+import { supabase } from "../../../lib/supabase";
+
+import Layout from "../../../layouts/Layout.astro";
+import ProductsCard from "../../../components/ProductsCard.astro";
+
+// utils
+import { slugify } from "../../../scripts/utils";
+export async function getStaticPaths() {
+  return [
+    {
+      params: { category: slugify("horror") },
+      props: { name: "horror" },
+    },
+    {
+      params: { category: slugify("mystery") },
+      props: { name: "mystery" },
+    },
+    {
+      params: { category: slugify("comedy") },
+      props: { name: "comedy" },
+    },
+    {
+      params: { category: slugify("romance") },
+      props: { name: "romance" },
+    },
+    {
+      params: { category: slugify("fantasy") },
+      props: { name: "fantasy" },
+    },
+    {
+      params: { category: slugify("short") },
+      props: { name: "short" },
+    },
+    {
+      params: { category: slugify("emotional") },
+      props: { name: "emotional" },
+    },
+    {
+      params: { category: slugify("adventure") },
+      props: { name: "adventure" },
+    },
+  ];
+}
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const { data: products } = await supabase.from("product").select("*");
+const catProd = products.filter(
+  (products) => slugify(products.product_category) === category
+);
+---
+
+<Layout title={name}>
+  <div class="text-center mt-32 mb-14">
+    <h3 class="title">Tìm tác phẩm theo tag #{name}</h3>
+  </div>
+  <div
+    class="place-items-center grid grid-cols-1 md:min-w-fit md:grid-cols-2 lg:min-w-max lg:grid-cols-3 gap-4 mx-5"
+  >
+    {
+      catProd.map((product) => (
+        <ProductsCard
+          productID={product.product_id}
+          productName={product.product_name}
+          productDescription={product.product_desc}
+          productPrice={product.product_price}
+          productCategory={product.product_category}
+          productStock={product.in_stock}
+          productLink={`/product/${product.product_id}`}
+          productImageSource={product.product_img_src}
+        />
+      ))
+    }
+  </div>
+</Layout>

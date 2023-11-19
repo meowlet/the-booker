@@ -1,0 +1,89 @@
+---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  DropdownSubmenu,
+} from "astro-navbar";
+import "../styles/base.css";
+---
+
+<header
+  class="bg-opacity-80 bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200 p-5 md:flex backdrop-blur"
+>
+  <Astronav>
+    <div class="flex w-full justify-between">
+      <a href="/" class="flex items-center">
+        <img src="/favicon.svg" class="h-6 mr-3" alt="Logo" />
+        <span
+          class="font-be-vn self-center text-2xl font-bold whitespace-nowrap"
+          >The<span class="text-orange-500">Booker</span></span
+        >
+      </a>
+      <div>
+        <MenuIcon
+          class="block md:hidden text-gray-500 rounded-lg bg-opacity-0 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        />
+      </div>
+    </div>
+    <MenuItems class="hidden md:flex">
+      <ul
+        id="nav-links"
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border-2 border-purple-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-opacity-0 whitespace-nowrap"
+      >
+        <li id="cart">
+          <a href="/shop/cart" id="cart" class="navlink"
+            ><i class="fa-solid fa-cart-shopping"></i><span
+              class="md:hidden navtext ml-2">Giỏ hàng</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="/" class="navlink" aria-current="page"
+            ><span class="navtext">Trang chủ</span></a
+          >
+        </li>
+        <li>
+          <a href="/shop" class="navlink" data-astro-reload
+            ><span class="navtext">Cửa hàng</span></a
+          >
+        </li>
+        <li id="dashboard" class="hidden">
+          <a href="/dashboard" class="navlink"
+            ><span class="navtext">Quản lý</span></a
+          >
+        </li>
+        <li id="login" class="hidden">
+          <a href="/login" class="navlink"
+            ><span class="navtext">Đăng nhập</span></a
+          >
+        </li>
+        <li id="signup" class="hidden">
+          <a href="/signup" id="signupp" class="navlink"
+            ><span class="navtext">Đăng ký</span></a
+          >
+        </li>
+        <li id="profile" class="hidden">
+          <a href="/profile" id="profile" class="navlink"
+            ><span id="profile-text" class="navtext"></span></a
+          >
+        </li>
+        <li id="logout" class="hidden">
+          <a href="" class="navlink"><span class="navtext">Đăng xuất</span></a>
+        </li>
+      </ul>
+    </MenuItems>
+  </Astronav>
+</header>
+<script>
+  import { checkUserAndRedirect } from "../scripts/validate";
+  checkUserAndRedirect();
+  import { logout } from "../scripts/logout";
+  document
+    .getElementById("logout")
+    .addEventListener("click", async function () {
+      logout();
+    });
+</script>

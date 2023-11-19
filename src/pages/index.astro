@@ -1,16 +1,103 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Trang chủ" description="Chào mưng bạn đến với TheBooker">
+  <section id="home" class="relative">
+    <div class="container py-20">
+      <div class="flex flex-col items-center z-20 md:flex-row">
+        <div class="text-center mb-12 md:text-left md:w-2/3 md:pr-10">
+          <h1 class="title mb-4">Bạn có đam mê với ngôn ngữ và văn học?</h1>
+          <p class="font-be-vn leading-relaxed mb-10 text-xl">
+            Bạn muốn khám phá những tác phẩm kinh điển và hiện đại của các nhà
+            văn nổi tiếng trên thế giới? Bạn muốn chia sẻ niềm yêu thích của
+            mình với những người cùng sở thích? Nếu câu trả lời là có, bạn đã
+            đến đúng nơi. Chào mừng bạn đến với website dịch thuật và xuất bản
+            sách của chúng tôi!
+          </p>
+          <a href="#home1" class="btn">Tiếp tục đọc</a>
+        </div>
+        <div class="md:w-1/2">
+          <img src="/images/book.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="home1">
+    <div class="container py-20">
+      <div class="text-center m-auto mb-20 md:w-1/2">
+        <h4 class="font-be-vn text-lg font-bold text-orange-500 mb-2">
+          Sứ mệnh
+        </h4>
+        <h1 class="title">Tâm tình gói gọn nơi từng con chữ</h1>
+      </div>
+      <div
+        class="grid lg:grid-cols-3 md:grid-cols-2 gap-12 lg:gap-8 px-4 sm:px-6 lg:px-8"
+      >
+        <!-- card no 1 -->
+        <div
+          class="border-2 border-solid border-gray-500 text-center py-20 px-5 rounded-2xl cursor-pointer hover:bg-gray-100 ease-in duration-200"
+        >
+          <div class="bg-orange-400 inline-block rounded-2xl py-5 px-6">
+            <i class="fa-solid fa-money-check-dollar text-4xl"></i>
+          </div>
+          <h3 class="font-be-vn text-xl font-bold py-4">Giá cả hợp lý</h3>
+          <p class="font-be-vn leading-relaxed">
+            Bạn cũng có thể đặt hàng những cuốn sách mà bạn yêu thích với giá cả
+            hợp lý và thời gian giao hàng nhanh chóng.
+          </p>
+        </div>
+        <!-- card no 2 -->
+        <div
+          class="bg-white border-2 border-solid border-gray-500 text-center py-20 px-5 rounded-2xl cursor-pointer hover:bg-gray-100 ease-in duration-200"
+        >
+          <div class="bg-orange-500 inline-block rounded-2xl py-5 px-6">
+            <i class="fa-solid fa-language text-4xl"></i>
+          </div>
+          <h3 class="font-be-vn text-xl font-bold py-4">
+            Dịch thuật chuyên nghiệp
+          </h3>
+          <p class="font-be-vn leading-relaxed">
+            Ngoài ra, chúng tôi còn có cung cấp dịch vụ dịch thuật, giúp bạn
+            dịch những tác phẩm văn học từ ngôn ngữ này sang ngôn ngữ khác một
+            cách trung thực và nghệ thuật.
+          </p>
+        </div>
+        <!-- card no 3 -->
+        <div
+          class="border-2 border-solid border-gray-500 text-center py-20 px-5 rounded-2xl cursor-pointer ease-in duration-200 hover:bg-gray-100"
+        >
+          <div class="bg-orange-500 inline-block rounded-2xl py-5 px-6">
+            <i class="fa-solid fa-book-open text-4xl"></i>
+          </div>
+          <h3 class="font-be-vn text-xl font-bold py-4">Sách hay</h3>
+          <p class="font-be-vn leading-relaxed">
+            Nơi bạn có thể tìm thấy những cuốn sách hay nhất trong nhiều thể
+            loại khác nhau, từ tiểu thuyết, truyện ngắn, thơ, kịch, đến sử thi,
+            trinh thám, khoa học viễn tưởng.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="home" class="relative">
+    <div class="container py-20">
+      <div class="flex flex-col items-center z-20 md:flex-row">
+        <div class="md:w-1/2">
+          <img src="/images/book.png" alt="" />
+        </div>
+        <div class="text-center mb-12 md:text-left md:w-2/3 md:pr-10">
+          <h1 class="title mb-4">Bạn có đam mê với ngôn ngữ và văn học?</h1>
+          <p class="font-be-vn leading-relaxed mb-10 text-xl">
+            Bạn muốn khám phá những tác phẩm kinh điển và hiện đại của các nhà
+            văn nổi tiếng trên thế giới? Bạn muốn chia sẻ niềm yêu thích của
+            mình với những người cùng sở thích? Nếu câu trả lời là có, bạn đã
+            đến đúng nơi. Chào mừng bạn đến với website dịch thuật và xuất bản
+            sách của chúng tôi!
+          </p>
+          <a href="#home1" class="btn">Tiếp tục đọc</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+
+.btn-rs{
+    @apply font-be-vn ease-in duration-200 text-purple-600 hover:text-white hover:bg-purple-500 bg-white border-2 border-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full px-5 py-2.5 text-center;
+}
+.btn{
+    @apply font-be-vn ease-in duration-200 text-purple-600 hover:text-white hover:bg-purple-500 bg-white border-2 border-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full px-5 py-2.5 text-center;
+}
+
+.btn-nohover{
+    @apply font-be-vn ease-in duration-200 text-black  bg-white border-2 border-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full px-5 py-2.5 text-center;
+}
+
+.rvsbtn{
+    @apply font-be-vn ease-in duration-200 text-white hover:text-purple-500 hover:bg-white bg-purple-500 border-2 border-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full px-5 py-2.5 text-center;
+}
+.typingbox{
+    @apply font-be-vn bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 block w-full p-2.5 text-base
+}
+.navlink{
+    @apply font-be-vn font-normal text-xl md:text-lg text-center block py-2 pl-3 pr-4 text-gray-900 rounded-lg bg-opacity-0 hover:bg-orange-200 md:hover:bg-transparent md:p-0
+}
+
+.lable{
+    @apply font-be-vn block mb-1 text-base font-normal text-gray-900
+}
+
+.navtext{
+    @apply md:bg-gradient-to-r from-purple-300 to-purple-300
+    md:bg-no-repeat [background-position:0_88%]
+    [background-size:100%_0.2em]
+    md:motion-safe:transition-all motion-safe:duration-200
+    md:hover:[background-size:100%_100%]
+    md:focus:[background-size:100%_100%]
+    text-base md:text-lg
+    
+}
+
+.blob1 {
+    @apply w-80 h-80 bg-purple-500 absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+}
+.blob2 {
+    @apply w-80 h-80 bg-orange-400 absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+}
+.title {
+    @apply font-be-vn text-3xl md:text-4xl font-bold leading-snug;
+}

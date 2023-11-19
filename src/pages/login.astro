@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+// import { validateForm } from "../scripts/login";
+---
+
+<Layout title="Đăng nhập" description="Đăng nhập">
+  <section>
+    <div
+      class="flex flex-col items-center justify-center px-6 py-8 mx-auto mt-0 md:h-screen lg:py-0"
+    >
+      <a
+        href="/"
+        class="italic font-be-vn flex items-center mb-6 text-3xl font-bold text-gray-900"
+      >
+        The
+        <span class="text-orange-500">Booker</span>
+      </a>
+      <div
+        class="w-full rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0 border-2 border-slate-300 bg-white bg-opacity-70"
+      >
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1
+            class="font-be-vn text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl"
+          >
+            Đăng nhập vào TheBooker
+          </h1>
+          <form class="space-y-4 md:space-y-6" action="#">
+            <div>
+              <label for="email" class="lable">Nhập tên người dùng</label>
+              <input
+                name="email"
+                id="email"
+                class="typingbox"
+                placeholder="Username"
+                required=""
+              />
+            </div>
+            <div>
+              <label for="password" class="lable">Nhập mật khẩu</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                class="typingbox"
+                required=""
+              />
+            </div>
+            <div class="flex justify-center">
+              <button type="submit" id="submit-button" class="btn w-64">
+                Đăng nhập
+              </button>
+            </div>
+          </form>
+          <p id="error-message" class="text-center text-md"></p>
+          <p class="text-sm font-be-vn font-light text-gray-500">
+            Chưa có tài khoản?<a
+              href="/signup/"
+              class="font-medium text-primary-600 hover:underline"
+            >
+              Đăng ký ngay!
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script src="../scripts/login"></script>

@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Dashboard">
+  <h1 class="title mt-24 mb-4 text-4xl font-bold text-center text-blue-600">
+    Quản lý sách
+  </h1>
+  <!-- Bắt đầu form nhập sản phẩm -->
+  <form
+    action=""
+    method="post"
+    class="font-be-vn max-w-md mx-auto p-4 bg-gray-100 border-2 border-slate-300 rounded-lg shadow-md bg-opacity-70"
+  >
+    <!-- Nhập ID sản phẩm -->
+    <div class="flex flex-col space-y-2 mt-4">
+      <label for="id" class="text-lg font-semibold text-gray-700"
+        >ID sản phẩm:</label
+      >
+      <input
+        type="number"
+        id="product_id"
+        name="product_id"
+        class="typingbox"
+      />
+      <!-- Chọn danh mục sản phẩm -->
+      <div>
+        <label class="text-lg font-semibold text-gray-700" for="cars"
+          >Danh mục sản phẩm:
+        </label><br />
+        <select
+          class="text-center max-w-md max-h-12 mx-auto space-y-2 my-2 py-2 px-4 bg-gray-100 border-black border-2 rounded-lg"
+          name="product_category"
+          id="product_category"
+        >
+          <option value="romance">Tình cảm</option>
+          <option value="mystery">Bí ẩn</option>
+          <option value="emotional">Buồn</option>
+          <option value="adventure">Phiêu lưu</option>
+          <option value="fantasy">Viễn tưởng</option>
+          <option value="horror">Kinh dị</option>
+          <option value="comedy">Hài hước</option>
+          <option value="short">Truyện ngắn</option>
+        </select>
+      </div>
+    </div>
+    <!-- Nhập tên sản phẩm -->
+    <div class="flex flex-col space-y-2">
+      <label for="name" class="text-lg font-semibold text-gray-700"
+        >Tên truyện:</label
+      >
+      <input
+        type="text"
+        id="product_name"
+        name="product_name"
+        class="typingbox"
+      />
+    </div>
+    <div class="flex flex-col space-y-2 mt-4">
+      <label for="name" class="text-lg font-semibold text-gray-700"
+        >Mô tả:</label
+      >
+      <input
+        type="text"
+        id="product_desc"
+        name="product_desc"
+        class="typingbox"
+      />
+    </div>
+    <!-- Nhập giá sản phẩm -->
+    <div class="flex flex-col space-y-2 mt-4">
+      <label for="id" class="text-lg font-semibold text-gray-700"
+        >Giá truyện:</label
+      >
+      <input
+        type="number"
+        id="product_price"
+        name="product_price"
+        class="typingbox"
+      />
+    </div>
+    <!-- Nhập số lượng sản phẩm trong kho -->
+    <div class="flex flex-col space-y-2 mt-4">
+      <label for="id" class="text-lg font-semibold text-gray-700">Kho:</label>
+      <input type="number" id="in_stock" name="in_stock" class="typingbox" />
+    </div>
+    <!-- Chọn hình ảnh cho sản phẩm -->
+    <input
+      type="file"
+      name="image"
+      accept="image/png, image/jpeg"
+      id="image_upload"
+      class="my-2 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+      required
+    />
+  </form>
+  <!-- Nút thêm sản phẩm -->
+  <div class="text-center my-4">
+    <button type="submit" class="btn-primary rvsbtn w-32"> Thêm</button>
+  </div>
+  <strong>
+    <p id="url"></p>
+  </strong>
+  <br />
+  <!-- Bảng hiển thị thông tin sản phẩm -->
+  <div class="m-12 relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="table-fixed w-full text-sm text-left rtl:text-right text-blue-100"
+    >
+      <thead class="text-xs text-center text-gray-500 uppercase bg-purple-300">
+        <tr>
+          <th class="px-6 py-3">Hình ảnh sản phẩm</th>
+          <th class="px-6 py-3">ID sản phẩm</th>
+          <th class="px-6 py-3">Tên sản phẩm</th>
+          <th class="px-6 py-3">Giá sản phẩm</th>
+          <th class="px-6 py-3">Kho</th>
+          <th class="px-6 py-3">Action</th>
+          <th class="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+      <tbody id="table-body" class="text-gray-700 table-auto"> </tbody>
+    </table>
+  </div>
+</Layout>
+<script src="../../scripts/dashboard"></script>

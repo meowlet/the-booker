@@ -1,0 +1,62 @@
+---
+import Pagination from "../../components/Pagination.astro";
+import ProductsCard from "../../components/ProductsCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { supabase } from "../../lib/supabase";
+export async function getStaticPaths({ paginate }) {
+  const { data: products } = await supabase.from("product").select("*");
+  return paginate(products, {
+    pageSize: 6,
+  });
+}
+const { page } = Astro.props;
+---
+
+<Layout title="Cửa hàng" description="Chúc bạn mua hàng vui vẻ">
+  <div class="text-center mt-32 mb-8">
+    <h3 class="title">Mừng bạn đến với kệ sách!</h3>
+  </div>
+  <div
+    class="flex items-right justify-center md:justify-end gap-4 mb-6 md:mr-20"
+  >
+    <a href="/shop/price-descending" class="btn-rs text-sm w-34"
+      ><i class="fa-solid fa-arrow-down-wide-short mr-1"></i>Giảm dần</a
+    >
+    <a href="/shop/price-ascending" class="btn-rs text-sm w-34"
+      >Tăng dần<i class="ml-1 fa-solid fa-arrow-up-wide-short"></i></a
+    >
+  </div>
+  <div class="flex items-center justify-center md:justify-end md:mr-20">
+    <div class="search-container relative mb-6 font-be-vn">
+      <input
+        type="text"
+        id="search-input"
+        class="btn-nohover h-fit text-sm w-72"
+        placeholder="Tìm kiếm sản phẩm..."
+      />
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <div
+    class="place-items-center grid grid-cols-1 md:min-w-fit md:grid-cols-2 lg:min-w-max lg:grid-cols-3 gap-4 mx-5"
+  >
+    {
+      page.data.map((product) => (
+        <ProductsCard
+          productID={product.product_id}
+          productName={product.product_name}
+          productDescription={product.product_desc}
+          productPrice={product.product_price}
+          productCategory={product.product_category}
+          productStock={product.in_stock}
+          productLink={`/product/${product.product_id}`}
+          productImageSource={product.product_img_src}
+        />
+      ))
+    }
+  </div>
+
+  <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+</Layout>
+<script src="../../scripts/search"></script>

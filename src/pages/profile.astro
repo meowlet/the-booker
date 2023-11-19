@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Cá nhân" description="Xem đơn hàng cá nhân">
+  <div class="container mx-auto py-8 font-be-vn">
+    <h1 class="text-2xl font-semibold mb-4">Đơn hàng của bạn</h1>
+    <div id="unprocessed-orders" class="big-table my-10 gap-4">
+      <div
+        id="orderTable"
+        class="items-center relative overflow-x-auto shadow-md rounded-lg border-2 border-slate-400 mb-6"
+      >
+      </div>
+      <!-- Unprocessed orders will be inserted here -->
+    </div>
+  </div>
+</Layout>
+<script src="../scripts/profile"></script>

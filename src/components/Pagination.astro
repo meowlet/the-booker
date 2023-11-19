@@ -1,0 +1,21 @@
+---
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+<nav class="flex items-center justify-center gap-3">
+  {
+    prevUrl && (
+      <a href={prevUrl} class="btn-rs text-sm w-34">
+        <i class="mx-auto fa-solid fa-arrow-left" />
+        Trang trước
+      </a>
+    )
+  }
+  {
+    nextUrl && (
+      <a href={nextUrl} class="btn-rs text-sm w-34">
+        Trang sau <i class="mx-auto fa-solid fa-arrow-right" />
+      </a>
+    )
+  }
+</nav>

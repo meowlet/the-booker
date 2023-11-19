@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="h-screen py-8">
+    <div class="container mx-auto py-4">
+      <h1 class="text-2xl font-semibold mb-4">Giỏ hàng</h1>
+      <div class="font-be-vn flex flex-col md:flex-row gap-4">
+        <div
+          class="bg-opacity-30 relative overflow-x-auto shadow-lg border-2 border-slate-400 rounded-lg md:w-3/4 h-fit"
+        >
+          <table class="w-full text-sm text-left text-gray-500">
+            <thead
+              class="text-sm whitespace-nowrap text-gray-700 uppercase bg-gray-100"
+            >
+              <tr>
+                <th scope="col" class="px-16 py-3"> </th>
+                <th scope="col" class="px-6 py-3"> Sách</th>
+                <th scope="col" class="px-6 py-3"> Số lượng</th>
+                <th scope="col" class="px-6 py-3"> Giá</th>
+                <th scope="col" class="px-6 py-3"> </th>
+              </tr>
+            </thead>
+            <tbody> </tbody>
+          </table>
+        </div>
+        <div class="md:w-1/4">
+          <div
+            class="border-2 border-slate-400 bg-white rounded-lg shadow-md p-6"
+          >
+            <h2 class="text-lg font-semibold mb-4">Hóa đơn</h2>
+            <div class="flex justify-between mb-2">
+              <span>Thành tiền</span>
+              <span id="total-price"></span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span>Thuế (8%)</span>
+              <span id="taxes"></span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span>Vận chuyển</span>
+              <span>0₫</span>
+            </div>
+            <hr class="my-2" />
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold">Total</span>
+              <span id="final-total" class="font-semibold"></span>
+            </div>
+            <button id="checkout" class="btn w-full h-fit text-sm mt-3"
+              >Xác nhận</button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+<script src="../../scripts/cart.js"></script>

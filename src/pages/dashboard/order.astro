@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="container mx-auto py-8 font-be-vn">
+    <h1 class="text-2xl font-semibold mb-4">Đơn hàng chưa xử lý</h1>
+    <div id="unprocessed-orders" class="big-table my-10 gap-4">
+      <!-- Unprocessed orders will be inserted here -->
+    </div>
+    <h1 class="text-2xl font-semibold mb-4">Đơn hàng đã xử lý</h1>
+    <div id="processed-orders" class="big-table my-10 gap-4">
+      <!-- Processed orders will be inserted here -->
+    </div>
+  </div>
+</Layout>
+<script src="../../scripts/order"></script>
