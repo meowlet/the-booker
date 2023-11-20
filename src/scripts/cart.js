@@ -52,7 +52,7 @@ if (error) {
         <td class="price px-6 py-4 font-semibold text-gray-900" data-original-price="${item.product.product_price}">${item.product.product_price}</td>
         <td class="px-6 py-4">
           <a href="#" class="remove font-medium text-red-600 hover:underline"
-            >Xóa khỏi giỏ</a
+            >Xóa</a
           >
         </td>
       </tr>
