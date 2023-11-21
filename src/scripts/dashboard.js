@@ -43,7 +43,7 @@ async function addProduct(product_img_src) {
   ({ value: product_category } = document.querySelector("#product_category"));
   ({ value: product_desc } = document.querySelector("#product_desc"));
   ({ value: product_price } = document.querySelector("#product_price"));
-  ({ value: in_stock } = document.querySelector("#in_stock"));
+  in_stock = 123;
 
   try {
     const { data } = await supabase
@@ -96,7 +96,7 @@ function renderTable(product) {
     let idCell = document.createElement("td");
     let nameCell = document.createElement("td");
     let priceCell = document.createElement("td");
-    let stockCell = document.createElement("td");
+    // let stockCell = document.createElement("td");
     let deleteCell = document.createElement("td");
     let deleteButton = document.createElement("button");
     let editCell = document.createElement("td");
@@ -110,12 +110,12 @@ function renderTable(product) {
     idCell.textContent = item.product_id;
     nameCell.textContent = item.product_name;
     priceCell.textContent = item.product_price;
-    stockCell.textContent = item.in_stock;
+    // stockCell.textContent = item.in_stock;
     imgCell.className = "md:px-6 md:py-4 border border-slate-500";
     idCell.className = "text-center font-bold border border-slate-500";
     nameCell.className = "text-center border border-slate-500";
     priceCell.className = "text-center border border-slate-500";
-    stockCell.className = "text-center border border-slate-500";
+    // stockCell.className = "text-center border border-slate-500";
 
     deleteButton.textContent = "Xóa";
     deleteButton.setAttribute("class", "btn btn-danger");
@@ -143,7 +143,7 @@ function renderTable(product) {
     row.appendChild(idCell);
     row.appendChild(nameCell);
     row.appendChild(priceCell);
-    row.appendChild(stockCell);
+    // row.appendChild(stockCell);
     row.appendChild(deleteCell);
     row.appendChild(editCell);
     row.className =
@@ -193,8 +193,9 @@ async function editProduct(id) {
   ({ value: product_name } = document.querySelector("#product_name"));
   ({ value: product_category } = document.querySelector("#product_category"));
   ({ value: product_price } = document.querySelector("#product_price"));
-  ({ value: in_stock } = document.querySelector("#in_stock"));
+  // ({ value: in_stock } = document.querySelector("#in_stock"));
   ({ value: product_desc } = document.querySelector("#product_desc"));
+  in_stock = 123;
 
   try {
     // Cập nhật thông tin sản phẩm trong database
